@@ -6,14 +6,16 @@ const images = await getImages()
 <script src="/lib/simple.js" async defer></script>
 
 <Layout title="Simple JS">
-  {images.map(src => (
-    <li>
-      <img
-        class="lazyload"
-        data-src="{src}"
-        width="500"
-        height="500"
-      />
-    </li>
-  ))}
+  <ul class="images">
+    {images.map(src => (
+      <li>
+        <img
+          class="lazyload"
+          data-src="{src}"
+          width="500"
+          height="500"
+        />
+      </li>
+    ))}
+  </ul>
 </Layout>

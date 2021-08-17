@@ -11,18 +11,20 @@ const images = await getImages()
     }
   </style>
 
-  {images.map(src => (
-    <li>
-      <noscript class="loading-lazy">
-        <img
-          src="{src}"
-          loading="lazy"
-          width="500"
-          height="500"
-        />
-      </noscript>
-    </li>
-  ))}
+  <ul class="images">
+    {images.map(src => (
+      <li>
+        <noscript class="loading-lazy">
+          <img
+            src="{src}"
+            loading="lazy"
+            width="500"
+            height="500"
+          />
+        </noscript>
+      </li>
+    ))}
+  </ul>
 </Layout>
 
 <script src="/lib/loading-attribute-polyfill.js" async defer></script>

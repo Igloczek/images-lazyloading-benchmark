@@ -2,15 +2,20 @@
 import Layout from '../layouts/default.astro'
 ---
 <Layout title="Home">
-  <div>
-    <h1>
-      Images Lazy Loading Benchmark
-    </h1>
+  <main>
+    <h1>Images Lazy Loading Benchmark</h1>
 
     <p>Chances that your page don't need images lazyloading are close to zero.</p>
     <p>This benchmark was created to pick the best option for implementing images lazyloading, with the goal of handling pages with big number of DOM nodes.</p>
 
-    <p>Lozad.js is not on this list, becuase I couldn't force it to work with Astro, sorry.</p>
+    <h2>Testing methodology</h2>
+
+    <ol>
+      <li>Each testing site is a static HTML with 2000 random images.</li>
+      <li>All images are cache busted and loaded from the same domain.</li>
+      <li>Tests was executed on webpagetest.org for consitency.</li>
+      <li>"Custom JS" is <a href="https://github.com/Igloczek/images-lazyloading-benchmark/blob/master/public/lib/simple.js" target="_blank">a super simple script</a> added for comparison.
+    </ol>
 
     <h2>Results</h2>
 
@@ -55,10 +60,31 @@ import Layout from '../layouts/default.astro'
         </tr>
       </tbody>
     </table>
-  </div>
+  </main>
 </Layout>
 
 <style lang="scss">
+main {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 16px;
+
+  a {
+    color: #fff;
+    &:hover {
+      color: #ff5e00;
+    }
+  }
+
+  ol {
+    padding: 0 1em;
+
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
 .table {
   text-align: left;
 
@@ -76,10 +102,6 @@ import Layout from '../layouts/default.astro'
 
   th, td {
     padding: 10px;
-  }
-
-  a {
-    color: #fff;
   }
 }
 </style>

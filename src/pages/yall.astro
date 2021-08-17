@@ -6,14 +6,16 @@ const images = await getImages()
 <script src="/lib/yall.js" async defer></script>
 
 <Layout title="yall.js">
-  {images.map(src => (
-    <li>
-      <img
-        class="lazy"
-        data-src="{src}"
-        width="500"
-        height="500"
-      />
-    </li>
-  ))}
+  <ul class="images">
+    {images.map(src => (
+      <li>
+        <img
+          class="lazy"
+          data-src="{src}"
+          width="500"
+          height="500"
+        />
+      </li>
+    ))}
+  </ul>
 </Layout>

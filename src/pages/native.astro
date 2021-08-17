@@ -4,14 +4,16 @@ import getImages from '../helpers/images.js'
 const images = await getImages()
 ---
 <Layout title="Native">
-  {images.map(src => (
-    <li>
-      <img
-        src="{src}"
-        loading="lazy"
-        width="500"
-        height="500"
-      />
-    </li>
-  ))}
+  <ul class="images">
+    {images.map(src => (
+      <li>
+        <img
+          src="{src}"
+          loading="lazy"
+          width="500"
+          height="500"
+        />
+      </li>
+    ))}
+  </ul>
 </Layout>
