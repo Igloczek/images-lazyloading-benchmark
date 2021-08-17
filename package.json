@@ -4,7 +4,6 @@
     "build": "astro build"
   },
   "dependencies": {
-    "astro": "^0.18.13",
-    "lazysizes": "^5.3.2"
+    "astro": "^0.18.13"
   }
 }
