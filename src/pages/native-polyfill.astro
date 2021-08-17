@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/default.astro'
+import getImages from '../helpers/images.js'
+const images = await getImages()
+---
+
+<Layout title="Native + Polyfill">
+  <style global>
+    img[data-lazy-src]{
+      will-change: contents;
+    }
+  </style>
+
+  {images.map(src => (
+    <li>
+      <noscript class="loading-lazy">
+        <img
+          src="{src}"
+          loading="lazy"
+          width="500"
+          height="500"
+        />
+      </noscript>
+    </li>
+  ))}
+</Layout>
+
+<script src="/lib/loading-attribute-polyfill.js" async defer></script>

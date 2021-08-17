@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/default.astro'
+import getImages from '../helpers/images.js'
+const images = await getImages()
+---
+<script src="/lib/lazysizes.js" async defer></script>
+
+<Layout title="lazysizes.js">
+  {images.map(src => (
+    <li>
+      <img
+        class="lazyload"
+        data-src="{src}"
+        width="500"
+        height="500"
+      />
+    </li>
+  ))}
+</Layout>
