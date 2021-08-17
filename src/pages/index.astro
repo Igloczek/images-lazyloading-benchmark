@@ -8,8 +8,78 @@ import Layout from '../layouts/default.astro'
     </h1>
 
     <p>Chances that your page don't need images lazyloading are close to zero.</p>
-    <p>This benchmark was created to pick the best option for implementing lazy loaded images, with the goal of handling pages with big number of DOM nodes.</p>
+    <p>This benchmark was created to pick the best option for implementing images lazyloading, with the goal of handling pages with big number of DOM nodes.</p>
 
-    <p>Lozad.js is not on this list, becuase I couldn't force it to work with Astro.</p>
+    <p>Lozad.js is not on this list, becuase I couldn't force it to work with Astro, sorry.</p>
+
+    <h2>Results</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Largest Contentful Paint</th>
+          <th>Total Blocking Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a target="_blank" href="https://www.webpagetest.org/result/210817_AiDc5X_b099e80a1a877e79a56bdba8e5f0e798/?view=webvitals">Native</a></td>
+          <td>2614 ms</td>
+          <td>208 ms</td>
+        </tr>
+        <tr>
+          <td><a target="_blank" href="https://www.webpagetest.org/result/210817_BiDc4A_96a0988782e4065a10f2f7af86bb30d3/?view=webvitals">Native + polyfill</a></td>
+          <td>2928 ms</td>
+          <td>1059 ms</td>
+        </tr>
+        <tr>
+          <td><a target="_blank" href="https://www.webpagetest.org/result/210817_BiDcBD_d2406ae877e56cd5ebfcdea00834733f/?view=webvitals">lazysizes.js</a></td>
+          <td>2269 ms</td>
+          <td>266 ms</td>
+        </tr>
+        <tr>
+          <td><a target="_blank" href="https://www.webpagetest.org/result/210817_AiDcAW_26cdf223ae7b67954a6a9975202712ef/?view=webvitals">vanilla-lazyload.js</a></td>
+          <td>2269 ms</td>
+          <td>266 ms</td>
+        </tr>
+        <tr>
+          <td><a target="_blank" href="https://www.webpagetest.org/result/210817_AiDcZZ_daa7fcc1b5924996364e1d448d1e99eb/?view=webvitals">yall.js</a></td>
+          <td>2269 ms</td>
+          <td>266 ms</td>
+        </tr>
+        <tr>
+          <td><a target="_blank" href="https://www.webpagetest.org/result/210817_AiDcPG_e30e48c202a64f95392dc9f3bb68bb7c/?view=webvitals">Custom JS</a></td>
+          <td>2269 ms</td>
+          <td>266 ms</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </Layout>
+
+<style lang="scss">
+.table {
+  text-align: left;
+
+  thead {
+    background: rgba(255,255,255, 0.3)
+  }
+
+  tr {
+    background: rgba(255,255,255, 0.2);
+
+    &:nth-child(odd) {
+      background: rgba(255,255,255, 0.1);
+    }
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+</style>
